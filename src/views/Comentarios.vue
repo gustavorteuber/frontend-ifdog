@@ -1,6 +1,9 @@
 <script>
 import Comentarios from "@/components/cachorrada/Comentarios.vue";
 import dog from "@/components/cachorrada/dog.vue";
+import dayjs from "dayjs";
+import locale_pt_br from "dayjs/locale/pt-br";
+import relativeTime from "dayjs/plugin/relativeTime";
 import axios from "axios";
 import { mapStores, mapState } from "pinia";
 import { useAuthStore } from "@/stores/auth";
@@ -43,6 +46,8 @@ export default {
     await this.getAllComments();
     await this.getTagA();
   },
+
+
   setup() {
     console.log("setup");
     onMounted(async () => {
@@ -85,59 +90,55 @@ export default {
           :key="comentario.id"
           :comentarios="comentario"
         />
+        
+        <div class="submit">
+            <input
+            @keydown.enter="addComment()"
+            type="text"
+            style="padding: 4px"
+            placeholder="escreva seu comentario
+              "
+              v-model="comentario.texto"
+          />
+            <button
+              v-on:click.prevent="addComment"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Enviar
+            </button>
+            
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="texts">
-    <div class="enviar">
-      <input
-        @keydown.enter="addComment()"
-        type="text"
-        style="padding: 4px"
-        placeholder="escreva seu comentario
-          "
-        v-model="comentario.texto"
-      />
-      <div class="submit">
-        <button
-          v-on:click.prevent="addComment"
-          type="submit"
-          class="btn btn-primary"
-        >
-          Enviar
-        </button>
-        <!-- <button
-          v-on:click.prevent="getTagA"
-          type="submit"
-          class="btn btn-primary"
-        >
-          getTag
-        </button>
-        <div>
-          {{ tagA }}
-        </div> -->
-      </div>
-    </div>
-  </div>
+  
 </template>
 
-<style scoped>
-.leaflet-popup-content-wrapper {
-  background-color: #232733;
+<style scoped>  
+
+
+input{
+  outline: 0;
+  color: #fff;
+  margin-top:20px ;
+  border-radius: 16px;
+  height: 40px;
+  background-color:#232733 ;
+  margin-left: 25px;
+  width: 550px;
 }
 
-.leaflet-popup-content-wrapper .leaflet-popup-content {
-  background-color: #232733;
-}
+  
+  .submit{
+    position:fixed;
+  }
 
-.leaflet-popup-tip-container {
-  background-color: #232733;
-}
   .map {
-  height: 100vh;
-  width: 100%;
-}
-.all {
+    height: 100vh;
+    width: 100%;
+  }
+  .all {
   display: flex;
 }
 .mapa {
@@ -153,9 +154,7 @@ export default {
 .outer {
   margin-top: 3rem;
 }
-.texts {
-  margin-top: 10px;
-}
+
 .comentarios {
   height: 90px;
 }
@@ -166,22 +165,9 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-.enviar {
-  display: flex;
-  height: 40px;
-}
 
-input {
-  margin-left: 63rem;
-  color: #eef;
-  background: rgba(22, 30, 53, 0.65);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(12.5px);
-  -webkit-backdrop-filter: blur(12.5px);
-  width: 900px;
-  border-radius: 15px;
-  outline: 0;
-}
+
+
 
 button {
   margin: 0;
@@ -216,7 +202,7 @@ button:hover {
   -webkit-backdrop-filter: blur(12.5px);
   border: 0px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0px 5px 30px #232733;
-  height: 90vh;
+  height: 100vh;
   width: 50vw;
 }
 </style>

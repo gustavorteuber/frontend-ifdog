@@ -1,12 +1,16 @@
 <script>
 import axios from "axios";
+import { mapState } from "pinia";
 import { useAuthStore } from "@/stores/auth";
 export default {
   props: ["comentarios"],
   data() {
     return {
+      superuser: "",
+      value: 1,
       user: {},
     };
+    
   },
   methods: {
     async removerComentario() {
@@ -16,6 +20,9 @@ export default {
       alert("Comentario deletado com sucesso!"),
         this.$router.push("/cachorrada");
     },
+  },
+  computed: {
+    ...mapState(useAuthStore, ["is_superuser"]),
   },
 
 };
@@ -31,7 +38,7 @@ export default {
         <h2>{{ comentarios.texto }}</h2>
         <a>{{comentarios.data}}</a>
       </div>
-      <div class="remove" v-bind="is_superuser">
+      <div class="remove" v-bind="superuser">
         <button
           v-if="is_superuser == true"
           @click="
@@ -50,6 +57,10 @@ export default {
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip{
   background-color: #161e35;
+}
+.remove {
+  display: flex;
+  align-items: center;
 }
 .fuso a{
   font-size: 10pt;

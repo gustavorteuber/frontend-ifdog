@@ -107,6 +107,10 @@ export default {
 </template>
 
 <style scoped>
+
+
+
+
 ul img {
   width: 2rem;
   height: 2rem;
