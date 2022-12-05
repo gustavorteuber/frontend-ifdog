@@ -16,8 +16,11 @@ export default {
         alert("Usuario registrado com sucesso");
         this.$router.push("/login");
       } catch (e) {
-        console.log(e);
-        alert("As credenciais não batem.");
+        let msg=""
+        for ( const item in e.response.data) {
+          msg = msg + item + ": " + e.response.data[item] + '\n'
+        }
+        alert(msg);
       }
     },
   },
@@ -122,6 +125,7 @@ export default {
             <div class="continue-button">
               <button @click.prevent="register">Continuar</button>
             </div>
+            <div>{{msg}}</div>
           </div>
         </form>
       </main>
