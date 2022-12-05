@@ -11,6 +11,7 @@ import Singout from "@/views/SingoutView.vue";
 import Emergencia from "@/views/EmergenciaView.vue";
 import PostCachorro from "@/views/PostCachorro.vue";
 import AlterarCachorro from "@/views/AlterarCachorro.vue";  
+import Alterloc from "@/views/Alterloc.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -65,6 +66,13 @@ const router = createRouter({
           name: "home",
           component: CachorrosView,
         },
+
+        {
+          path: "/alterloc",
+          name: "alterloc",
+          component: Alterloc,
+        },
+
         {
           path: "/singout",
           name: "singout",

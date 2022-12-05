@@ -47,7 +47,6 @@ export default {
     await this.getTagA();
   },
 
-
   setup() {
     console.log("setup");
     onMounted(async () => {
@@ -67,9 +66,9 @@ export default {
         let popup = leaflet
           .popup()
           .setContent(
-
-            `<h1>${dog.cachorro.nome}</h1><p>Estou no bloco: ${dog.local.local}</p><a>${dog.hora}</a> }`
-           
+            `<h1>${dog.cachorro.nome}</h1><p>Estou no bloco: ${dog.local.local}</p><a>${dog.hora}</a>
+        
+           <a href="alterloc" <button>Alterar Localização</button></a>`
           )
           .setLatLng(map[dog.local.local])
           .addTo(myMap);
@@ -90,55 +89,46 @@ export default {
           :key="comentario.id"
           :comentarios="comentario"
         />
-        
+
         <div class="submit">
-            <input
+          <input
             @keydown.enter="addComment()"
             type="text"
-            style="padding: 4px"
+            style="padding: 4px;"
             placeholder="escreva seu comentario
               "
-              v-model="comentario.texto"
+            v-model="comentario.texto"
           />
-            <button
-              v-on:click.prevent="addComment"
-              type="submit"
-              class="btn btn-primary"
-            >
-              Enviar
-            </button>
-            
-          </div>
+          <button
+            v-on:click.prevent="addComment"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Enviar
+          </button>
         </div>
       </div>
     </div>
-  
+  </div>
 </template>
 
-<style scoped>  
-
-
-input{
+<style scoped>
+input {
   outline: 0;
   color: #fff;
-  margin-top:20px ;
+  margin-top: 20px;
   border-radius: 16px;
   height: 40px;
-  background-color:#232733 ;
+  background-color: #232733;
   margin-left: 25px;
   width: 550px;
 }
 
-  
-  .submit{
-    position:fixed;
-  }
-
-  .map {
-    height: 100vh;
-    width: 100%;
-  }
-  .all {
+.map {
+  height: 100vh;
+  width: 100%;
+}
+.all {
   display: flex;
 }
 .mapa {
@@ -164,10 +154,6 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-
-
-
 
 button {
   margin: 0;
