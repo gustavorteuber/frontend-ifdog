@@ -10,7 +10,6 @@ export default {
       value: 1,
       user: {},
     };
-    
   },
   methods: {
     async removerComentario() {
@@ -24,7 +23,6 @@ export default {
   computed: {
     ...mapState(useAuthStore, ["is_superuser"]),
   },
-
 };
 </script>
 
@@ -36,7 +34,7 @@ export default {
       >
       <div class="fuso">
         <h2>{{ comentarios.texto }}</h2>
-        <a>{{comentarios.data}}</a>
+        <a>{{ comentarios.data }}</a>
       </div>
       <div class="remove" v-bind="superuser">
         <button
@@ -54,15 +52,15 @@ export default {
 </template>
 
 <style scoped>
-
-.leaflet-popup-content-wrapper, .leaflet-popup-tip{
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
   background-color: #161e35;
 }
 .remove {
   display: flex;
   align-items: center;
 }
-.fuso a{
+.fuso a {
   font-size: 10pt;
   background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);
   -webkit-background-clip: text;

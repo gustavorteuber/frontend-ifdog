@@ -11,6 +11,8 @@ import leaflet from "leaflet";
 import { onMounted } from "@vue/runtime-core";
 import { map } from "@/plugins/map.js";
 
+dayjs.extend(relativeTime);
+
 export default {
   components: { Comentarios, dog },
   data() {
@@ -62,6 +64,8 @@ export default {
         .addTo(myMap);
 
       tags.data.forEach((dog) => {
+        dog.hora = dayjs(dog.hora).locale(locale_pt_br).fromNow();
+        console.log(dog.hora);
         //pop up
         let popup = leaflet
           .popup()
