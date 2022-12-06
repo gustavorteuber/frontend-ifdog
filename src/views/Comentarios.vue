@@ -17,6 +17,9 @@ export default {
   components: { Comentarios, dog },
   data() {
     return {
+      value: 1,
+      user: {},
+      superuser: "",
       tagA: {},
       comentarios: [],
       comentario: {
@@ -27,7 +30,7 @@ export default {
   },
   computed: {
     ...mapStores(useAuthStore),
-    ...mapState(useAuthStore, ["id"]),
+    ...mapState(useAuthStore, ["id", "is_superuser", "username"]),
   },
   methods: {
     async addComment() {
@@ -70,9 +73,7 @@ export default {
         let popup = leaflet
           .popup()
           .setContent(
-            `<h1>${dog.cachorro.nome}</h1><p>Estou no bloco: ${dog.local.local}</p><a>${dog.hora}</a>
-        
-           <a href="alterloc" <button>Alterar Localização</button></a>`
+            `<h1>${dog.cachorro.nome}</h1><p>Estou no bloco: ${dog.local.local}</p><a>${dog.hora}</a> `
           )
           .setLatLng(map[dog.local.local])
           .addTo(myMap);

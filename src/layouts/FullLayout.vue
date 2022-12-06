@@ -83,6 +83,9 @@ export default {
             <li v-if="is_superuser == true">
               <RouterLink to="/postcachorro">Novo dog</RouterLink>
             </li>
+            <li v-if="is_superuser == true">
+              <RouterLink to="/alterloc">Rastreamento</RouterLink>
+            </li>
             <li v-if="is_superuser == false">
               <RouterLink to="/contate">Sobre Nos</RouterLink>
             </li>
