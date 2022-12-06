@@ -20,6 +20,7 @@ export default {
 <template>
   <div class="carrossel">
     <Carrosel />
+    
   </div>
   <div class="card-group">
     <CachorroCard

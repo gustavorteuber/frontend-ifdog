@@ -9,7 +9,28 @@
     <template #addons>
       <Navigation />
       <Pagination />
+      <div class="admin">
+        <div class="nav" v-bind="superuser">
+
+          <div class="img-1">
+            <h1>Imagem 1</h1>
+            <input type="file">
+            <button>upload</button>
+          </div>
+          <div class="img-2">
+            <h1>Imagem 2</h1>
+            <input type="file">
+          <button>upload</button>
+        </div>
+        <div class="img-3">
+          <h1>Imagem 3</h1>
+          <input type="file">
+          <button>upload</button>
+        </div>
+      </div>
+      </div>
     </template>
+    
   </Carousel>
 </template>
 
@@ -30,6 +51,76 @@
 </script>
 
 <style>
+
+.nav{
+  border-radius:18px ;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+  background: #161e35;
+  display: flex;
+}
+
+.admin{
+  margin-bottom: 2rem ;
+  margin-top: 2rem ;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.img-1{
+  margin-right:10px ;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: flex ;
+  flex-direction:column ;
+}
+
+
+
+
+.img-2{
+  margin-right:10px ;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: flex ;
+  flex-direction:column ;
+}
+
+h1{
+  background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+button{
+    margin: 0;
+    margin-top:2rem ;
+    width: 200px;
+    height: 40px;
+    border-radius: 15px;
+  background: linear-gradient(to right, #0419d6, #00b7ff);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+ button:hover{
+    
+    background: linear-gradient(to right, rgb(230, 108, 169), #970584);}
+
+.img-3{
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: flex ;
+  flex-direction:column ;
+}
+
   :root {
     --vc-clr-primary: #00b7ff;
     --vc-clr-secondary: #8e98f3;
