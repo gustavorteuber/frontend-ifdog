@@ -1,35 +1,36 @@
 <script>
-import axios from "axios";
-import { mapStores, mapState } from "pinia";
-import { useAuthStore } from "@/stores/auth";
-export default {
-  name: "tags",
-  props: ["id"],
-  data() {
-    return {
-      tags:{
-        cachorro: 0,
-        local:"",
+  import { mapState, mapStores } from "pinia";
+  import { useAuthStore } from "@/stores/auth";
+  import axios from "axios";
+  export default {
+    data() {
+      return {
+        tags: {
+          id: "",
+          local:{
+            id:"",
+            local:"",
+            hardware:"",
+          }
+        },
+      };
     },
-  };
-},
-
-  async created() {
-    const res = await axios.get(`http://localhost:8000/tags/${this.id}/`);
-    this.tags = res.data;
-    },
+      async created() {
+      const res = await axios.get(`http://localhost:8000/tags/${this.id}/`);
+      this.tags = res.data;
+      console.log(this.tags)
+  },
     methods: {
-      async alterarLoc() {
+      async editarTag() {
         const info = {
           local: this.tags.local,
-          nome: this.cachorro.nome
+          cachorro: this.tags.cachorro,
         }
         try {
           await axios.put(
             `http://localhost:8000/tags/${this.id}/`,
             info)
-          alert("Alterado com sucesso!")
-          this.$router.push("/cachorrada");
+          alert("por favor deslogar para salvar as informações")
          } catch {
           alert("Algo deu errado, tente novamente ");
         }
@@ -37,10 +38,7 @@ export default {
     },
     computed: {
       ...mapStores(useAuthStore),
-      ...mapState(useAuthStore, ["cachorros","username", "email", "id", "first_name"]),
-    },
-    mounted() {
-      
+      ...mapState(useAuthStore, ["username", "email", "id", "first_name"]),
     },
   };
 </script>
@@ -54,15 +52,15 @@ export default {
                 </h1>
             </div>
             <div class="dogs">
-            <select name="cachorros" id="localização">
-                <option value="Maicon">{{tags.cachorro.nome}}</option>
-                <option value="Formiga">{{tags.cachorro.nome}}</option>
-                <option value="Fumaça">{{tags.cachorro.nome}}</option>
-                <option value="Churras">{{tags.cachorro.nome}}</option>
+            <select v-model="tags.cachorro" name="cachorros" id="localização">
+                <option value="Maicon">{{tags.cachorro}}</option>
+                <option value="Formiga">{{tags.cachorro}}</option>
+                <option value="Fumaça">{{tags.cachorro}}</option>
+                <option value="Churras">{{tags.cachorro}}</option>
             </select>
         </div>
         <div class="blocos">
-            <select name="blocos" id="blocos">
+            <select v-model="tags.local" name="blocos" id="blocos">
                 <option value="A">{{tags.local}}</option>
                 <option value="B">{{tags.local}}</option>
                 <option value="C">{{tags.local}}</option>
