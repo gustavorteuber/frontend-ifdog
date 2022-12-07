@@ -47,6 +47,8 @@ export default {
               <button>upload</button>
             </div>
           </div>
+        </div>
+        <div class="nav-1">
           <div class="img-2" v-if="is_superuser == true">
             <div class="title-dog">
               <h1>Imagem 2</h1>
@@ -56,6 +58,8 @@ export default {
               <button>upload</button>
             </div>
           </div>
+        </div>
+        <div class="nav-2">
           <div class="img-3" v-if="is_superuser == true">
             <div class="title-dog">
               <h1>Imagem 3</h1>
@@ -75,6 +79,28 @@ export default {
 
 <style>
 .nav {
+  border-radius: 18px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+  background: #161e35;
+  display: flex;
+}
+
+.nav-1 {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 18px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+  background: #161e35;
+  display: flex;
+}
+
+.nav-2 {
   border-radius: 18px;
   padding: 16px;
   justify-content: center;

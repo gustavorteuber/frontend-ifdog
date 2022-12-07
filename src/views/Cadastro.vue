@@ -13,14 +13,14 @@ export default {
           "http://localhost:8000/usuarios/",
           this.user
         );
-        alert("Usuario registrado com sucesso");
+        this.$swal("Usuario registrado com sucesso");
         this.$router.push("/login");
       } catch (e) {
-        let msg=""
-        for ( const item in e.response.data) {
-          msg = msg + item + ": " + e.response.data[item] + '\n'
+        let msg = "";
+        for (const item in e.response.data) {
+          msg = msg + item + ": " + e.response.data[item] + "\n";
         }
-        alert(msg);
+        this.$swal(msg);
       }
     },
   },
@@ -53,8 +53,7 @@ export default {
                   name="firstname"
                   placeholder="Digite seu primeiro nome"
                   v-model="user.first_name"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -66,8 +65,7 @@ export default {
                   name="lastname"
                   placeholder="Digite seu sobrenome"
                   v-model="user.last_name"
-                  required
-                />
+                  required />
               </div>
               <div class="input-box">
                 <label for="email">E-mail</label>
@@ -78,8 +76,7 @@ export default {
                   name="email"
                   placeholder="Digite seu e-mail"
                   v-model="user.email"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -91,8 +88,7 @@ export default {
                   name="number"
                   v-model="user.username"
                   required
-                  placeholder="Digite seu username"
-                />
+                  placeholder="Digite seu username" />
               </div>
 
               <div class="input-box">
@@ -104,8 +100,7 @@ export default {
                   name="password"
                   placeholder="Digite sua senha"
                   v-model="user.password"
-                  required
-                />
+                  required />
               </div>
 
               <div class="input-box">
@@ -117,15 +112,14 @@ export default {
                   name="confirmPassword"
                   placeholder="Digite sua senha novamente"
                   v-model="user.password_confirmation"
-                  required
-                />
+                  required />
               </div>
             </div>
 
             <div class="continue-button">
               <button @click.prevent="register">Continuar</button>
             </div>
-            <div>{{msg}}</div>
+            <div>{{ msg }}</div>
           </div>
         </form>
       </main>

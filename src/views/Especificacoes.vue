@@ -30,7 +30,8 @@ export default {
     },
     async removerCao() {
       await axios.delete(`http://localhost:8000/cachorros/${this.id}/`);
-      alert("Cachorro deletado com sucesso!"), this.$router.push("/cachorrada");
+      this.$swal("Cachorro deletado com sucesso!"),
+        this.$router.push("/cachorrada");
     },
     async postEspecificacoes() {
       this.especificacoes.cachorros = this.$route.params.id;

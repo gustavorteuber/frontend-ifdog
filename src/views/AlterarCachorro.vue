@@ -43,10 +43,10 @@ export default {
       };
       try {
         await axios.put(`http://localhost:8000/cachorros/${this.id}/`, info);
-        alert("Alterado com sucesso!");
+        this.$swal("Alterado com sucesso!");
         this.$router.push("/cachorrada");
       } catch {
-        alert("Algo deu errado, tente novamente ");
+        this.$swal("Algo deu errado, tente novamente ");
       }
     },
     uploadFile() {
@@ -62,7 +62,7 @@ export default {
         { headers }
       );
       this.cachorro.foto_attachment_key = data.attachment_key;
-      alert("Foto adicionada!");
+      this.$swal("Foto adicionada!");
     },
   },
   computed: {

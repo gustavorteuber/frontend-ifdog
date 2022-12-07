@@ -16,7 +16,7 @@ export default {
       await axios.delete(
         `http://localhost:8000/coments/${this.comentarios.id}/`
       );
-      alert("Comentario deletado com sucesso!"),
+      this.$swal("Comentario deletado com sucesso!"),
         this.$router.push("/cachorrada");
     },
   },
@@ -42,8 +42,7 @@ export default {
           @click="
             this.id = comentarios.autor.id;
             removerComentario();
-          "
-        >
+          ">
           DELETAR
         </button>
       </div>

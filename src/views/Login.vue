@@ -15,7 +15,7 @@ export default {
         await this.login(this.user);
         this.$router.push("/cachorrada");
       } catch {
-        alert("Email ou senha invalidos!");
+        this.$swal("Email ou senha invalidos!");
       }
     },
   },
@@ -51,19 +51,17 @@ export default {
           @keydown.enter="submitLogin()"
           v-model="user.username"
           type="text"
-          placeholder="Digite seu E-mail"
-        />
+          placeholder="Digite seu E-mail" />
       </div>
       <div class="name-top">
         <span>Senha:</span>
       </div>
       <div class="input-field">
         <input
-        @keydown.enter="submitLogin()"
+          @keydown.enter="submitLogin()"
           v-model="user.password"
           type="Password"
-          placeholder="Digite sua senha"
-        />
+          placeholder="Digite sua senha" />
       </div>
       <div class="input-button">
         <!-- <a href="/cachorrada"> -->

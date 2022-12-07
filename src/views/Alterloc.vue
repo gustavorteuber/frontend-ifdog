@@ -28,10 +28,10 @@ export default {
       };
       try {
         await axios.put(`http://localhost:8000/tags/${this.id}/`, info);
-        alert("LOCALIZAÇÃO ATUALIZADA!");
+        this.$swal("LOCALIZAÇÃO ATUALIZADA!");
         this.$router.push("/comentarios");
       } catch {
-        alert("Algo deu errado, tente novamente ");
+        this.$swal("Algo deu errado, tente novamente ");
       }
     },
   },
