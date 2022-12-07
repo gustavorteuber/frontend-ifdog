@@ -16,7 +16,7 @@
       };
     },
       async created() {
-      const res = await axios.get(`http://localhost:8000/tags/${this.id}/`);
+      const res = await axios.get(`http://localhost:8000/tags/`);
       this.tags = res.data;
       console.log(this.tags)
   },
@@ -30,9 +30,11 @@
           await axios.put(
             `http://localhost:8000/tags/${this.id}/`,
             info)
-          alert("por favor deslogar para salvar as informações")
+          alert("LOCALIZAÇÃO ATUALIZADA!")
+          this.$router.push("/comentarios");
          } catch {
           alert("Algo deu errado, tente novamente ");
+          
         }
       },
     },
@@ -52,24 +54,24 @@
                 </h1>
             </div>
             <div class="dogs">
-            <select v-model="tags.cachorro" name="cachorros" id="localização">
-                <option value="Maicon">{{tags.cachorro}}</option>
-                <option value="Formiga">{{tags.cachorro}}</option>
-                <option value="Fumaça">{{tags.cachorro}}</option>
-                <option value="Churras">{{tags.cachorro}}</option>
+            <select v-model="tags.cachorro" name="cachorros" id="tags.id">
+                <option value="17">Maicon</option>
+                <option value="18">Formiga</option>
+                <option value="19">Churras</option>
+                <option value="20">Fumaça</option>
             </select>
         </div>
         <div class="blocos">
-            <select v-model="tags.local" name="blocos" id="blocos">
-                <option value="A">{{tags.local}}</option>
-                <option value="B">{{tags.local}}</option>
-                <option value="C">{{tags.local}}</option>
-                <option value="D">{{tags.local}}</option>
-                <option value="E">{{tags.local}}</option>
+            <select v-model="tags.local" name="blocos" id="tags.id">
+                <option value="5">A</option>
+                <option value="4">B</option>
+                <option value="3">C</option>
+                <option value="2">D</option>
+                <option value="1">E</option>
             </select>
         </div>
         <div class="upload">
-            <button>Atualizar</button>
+            <button @click="editarTag()">Atualizar</button>
         </div>
     </div>
     </div>
