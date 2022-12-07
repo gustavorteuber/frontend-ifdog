@@ -15,21 +15,19 @@
       <div class="id-dog">
         <img
           src="https://conteudo.imguol.com.br/c/entretenimento/54/2020/04/28/cachorro-pug-1588098472110_v2_1x1.jpg"
-          alt=""
-        />
+          alt="" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.outer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
 
 .text {
   display: flex;
@@ -37,9 +35,9 @@
 }
 
 .container {
-    width: 300px;
-    height: 150px;
-background: rgba(22, 30, 53, 0.65);
+  width: 300px;
+  height: 150px;
+  background: rgba(22, 30, 53, 0.65);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);
@@ -51,5 +49,4 @@ background: rgba(22, 30, 53, 0.65);
   border-radius: 200px;
   border: 6px solid #eef;
 }
-
 </style>

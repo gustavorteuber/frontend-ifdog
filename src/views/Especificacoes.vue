@@ -17,9 +17,6 @@ export default {
         nome: "",
         nome_responsavel: "",
         tel_responsavel: "",
-        foto: {
-          url: null,
-        },
       },
     };
   },
@@ -33,9 +30,8 @@ export default {
     },
     async removerCao() {
       await axios.delete(`http://localhost:8000/cachorros/${this.id}/`);
-      alert("Cachorro deletado com sucesso!"),
-      this.$router.push("/cachorrada");
-      },
+      alert("Cachorro deletado com sucesso!"), this.$router.push("/cachorrada");
+    },
     async postEspecificacoes() {
       this.especificacoes.cachorros = this.$route.params.id;
       await this.$post("cachorros/", this.especificacoes);
@@ -87,12 +83,17 @@ export default {
             <a target="_blank" :href="cachorro.tel_responsavel">Contato</a>
           </div>
           <div class="admin">
-          <div class="remove" v-bind="superuser">
-            <button v-if="is_superuser == true" @click="removerCao"><i class="fa-solid fa-trash"></i>Remover Cão</button>
-          </div>
-          <div class="alterarCachorro" v-bind="superuser">
-            <RouterLink :to="`/alterarCachorro/${cachorro.id}`">
-              <button v-if="is_superuser == true" @click="alterarCao"> Alterar cão</button></RouterLink>
+            <div class="remove" v-bind="superuser">
+              <button v-if="is_superuser == true" @click="removerCao">
+                <i class="fa-solid fa-trash"></i>Remover Cão
+              </button>
+            </div>
+            <div class="alterarCachorro" v-bind="superuser">
+              <RouterLink :to="`/alterarCachorro/${cachorro.id}`">
+                <button v-if="is_superuser == true" @click="alterarCao">
+                  Alterar cão
+                </button></RouterLink
+              >
             </div>
           </div>
         </div>
@@ -102,8 +103,7 @@ export default {
 </template>
 
 <style scoped>
-
-.remove button{
+.remove button {
   margin-bottom: 10px;
   border-radius: 8px;
   height: 50px;
@@ -111,15 +111,14 @@ export default {
   cursor: pointer;
   color: #fff;
   background-color: red;
-
 }
 
-.admin{
+.admin {
   align-items: center;
   justify-content: center;
   display: flex;
 }
-.alterarCachorro button{
+.alterarCachorro button {
   margin-bottom: 10px;
   border-radius: 8px;
   height: 50px;
@@ -127,9 +126,7 @@ export default {
   cursor: pointer;
   color: #fff;
   background-color: rgb(78, 92, 0);
-
 }
-
 
 a {
   color: #ffffff !important;
