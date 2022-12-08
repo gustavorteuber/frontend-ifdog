@@ -6,6 +6,7 @@ import locale_pt_br from "dayjs/locale/pt-br";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useAuthStore } from "@/stores/auth";
 
+
 dayjs.extend(relativeTime);
 
 export default {
@@ -29,9 +30,9 @@ export default {
   computed: {
     ...mapState(useAuthStore, ["is_superuser"]),
   },
-  async mounted() {
-    this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
-  }
+  // created() {
+    // this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
+  // },
 };
 </script>
 

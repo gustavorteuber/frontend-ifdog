@@ -45,11 +45,12 @@ export default {
     async getAllComments() {
       const comentarios = await axios.get("http://localhost:8000/coments/");
       this.comentarios = comentarios.data;
+      this.comentarios.forEach(comentario => comentario.data = dayjs(comentario.data).locale(locale_pt_br).fromNow())
     },
-    async mounted() {
-    this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
-  
-  }
+    // async mounted() {
+    // this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
+  // 
+  // }
   },
   async created() {
     await this.getAllComments();
@@ -89,7 +90,7 @@ export default {
 <template>
   <div class="all">
     <!-- main -->
-    <div id="map" class="map" @click=""></div>
+    <div id="map" class="map"></div>
     <!-- main -->
     <div class="corpo">
       <div class="comentarios">

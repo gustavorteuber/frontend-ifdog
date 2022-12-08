@@ -110,7 +110,7 @@ h1 {
 
 .carousel__item img {
   border-radius: 2px;
-  width: 100vw;
+  width: 50vw;
 }
 
 .carousel__slide {

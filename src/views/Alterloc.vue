@@ -24,10 +24,9 @@ export default {
     async editarTag() {
       const info = {
         local: this.tags.local,
-        cachorro: this.tags.cachorro,
       };
       try {
-        await axios.put(`http://localhost:8000/tags/${this.id}/`, info);
+        await axios.patch(`http://localhost:8000/tags/${this.tags.cachorro}/`, info);
         this.$swal("LOCALIZAÇÃO ATUALIZADA!");
         this.$router.push("/comentarios");
       } catch {
@@ -49,10 +48,10 @@ export default {
       </div>
       <div class="dogs">
         <select v-model="tags.cachorro" value="tags.id" name="cachorros" id="tags.id">
-          <option value="17">Maicon</option>
-          <option value="18">Formiga</option>
-          <option value="19">Churras</option>
-          <option value="20">Fumaça</option>
+          <option value="4">Maicon</option>
+          <option value="2">Formiga</option>
+          <option value="5">Churras</option>
+          <option value="1">Fumaça</option>
         </select>
       </div>
       <div class="blocos">

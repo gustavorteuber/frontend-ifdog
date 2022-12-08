@@ -44,14 +44,14 @@ export default {
         <span> ou </span>
       </div>
       <div class="name-top">
-        <span>Email:</span>
+        <span>Usuário:</span>
       </div>
       <div class="input-field">
         <input
           @keydown.enter="submitLogin()"
           v-model="user.username"
           type="text"
-          placeholder="Digite seu E-mail" />
+          placeholder="Digite seu usuário" />
       </div>
       <div class="name-top">
         <span>Senha:</span>
