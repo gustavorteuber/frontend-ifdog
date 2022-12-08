@@ -28,8 +28,7 @@ export default {
   <Carousel :autoplay="3000" :wrap-around="true" :itemsToShow="1">
     <Slide v-for="slide in 2" :key="slide">
       <div class="carousel__item">
-        <img src="../assets/img/def.png" alt="" />
-        <img src="../assets/img/22.png" alt="" />
+        <img src="../assets/img/definido.png" alt="" />
       </div>
     
     </Slide>
@@ -110,7 +109,7 @@ h1 {
 
 .carousel__item img {
   border-radius: 2px;
-  width: 50vw;
+  width: 100vw;
 }
 
 .carousel__slide {
