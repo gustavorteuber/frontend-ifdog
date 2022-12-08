@@ -12,7 +12,9 @@ export default {
     };
   },
   async created() {
-    const cachorros = await axios.get("http://localhost:8000/cachorros/");
+    const cachorros = await axios.get(
+      "https://horseti.pythonanywhere.com/cachorros/"
+    );
     this.cachorros = cachorros.data;
   },
 };
@@ -20,7 +22,6 @@ export default {
 <template>
   <div class="carrossel">
     <Carrosel />
-    
   </div>
   <div class="card-group">
     <CachorroCard

@@ -29,7 +29,9 @@ export default {
       );
     },
     async removerCao() {
-      await axios.delete(`http://localhost:8000/cachorros/${this.id}/`);
+      await axios.delete(
+        `https://horseti.pythonanywhere.com/cachorros/${this.id}/`
+      );
       this.$swal("Cachorro deletado com sucesso!"),
         this.$router.push("/cachorrada");
     },
@@ -40,7 +42,9 @@ export default {
     },
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/cachorros/${this.id}/`);
+    const res = await axios.get(
+      `https://horseti.pythonanywhere.com/cachorros/${this.id}/`
+    );
     this.cachorro = res.data;
   },
   computed: {

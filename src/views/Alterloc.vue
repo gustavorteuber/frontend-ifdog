@@ -16,7 +16,7 @@ export default {
     };
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/tags/`);
+    const res = await axios.get(`https://horseti.pythonanywhere.com/tags/`);
     this.tags = res.data;
     console.log(this.tags);
   },
@@ -26,7 +26,10 @@ export default {
         local: this.tags.local,
       };
       try {
-        await axios.patch(`http://localhost:8000/tags/${this.tags.cachorro}/`, info);
+        await axios.patch(
+          `https://horseti.pythonanywhere.com/tags/${this.tags.cachorro}/`,
+          info
+        );
         this.$swal("LOCALIZAÇÃO ATUALIZADA!");
         this.$router.push("/comentarios");
       } catch {
@@ -47,15 +50,25 @@ export default {
         <h1>Atualize a localização !</h1>
       </div>
       <div class="dogs">
-        <select v-model="tags.cachorro" value="tags.id" name="cachorros" id="tags.id">
-          <option value="4">Maicon</option>
+        <select
+          v-model="tags.cachorro"
+          value="tags.id"
+          name="cachorros"
+          id="tags.id"
+        >
+          <option value="1">Maicon</option>
           <option value="2">Formiga</option>
-          <option value="5">Churras</option>
-          <option value="1">Fumaça</option>
+          <option value="3">Churras</option>
+          <option value="4">Fumaça</option>
         </select>
       </div>
       <div class="blocos">
-        <select v-model="tags.local" value="tags.local" name="blocos" id="tags.id">
+        <select
+          v-model="tags.local"
+          value="tags.local"
+          name="blocos"
+          id="tags.id"
+        >
           <option value="5">A</option>
           <option value="4">B</option>
           <option value="3">C</option>

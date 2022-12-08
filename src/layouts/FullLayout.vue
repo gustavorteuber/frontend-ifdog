@@ -13,7 +13,9 @@ export default {
     };
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/usuarios/${this.id}/`);
+    const res = await axios.get(
+      `https://horseti.pythonanywhere.com/usuarios/${this.id}/`
+    );
     this.user = res.data;
     console.log(this.user);
   },
@@ -45,7 +47,8 @@ export default {
               <img
                 v-if="user.foto == null"
                 src="../assets/img/semfoto.png"
-                alt="teste" />
+                alt="teste"
+              />
             </div>
             <RouterLink to="/singout"></RouterLink>
           </li>
@@ -53,7 +56,7 @@ export default {
             <RouterLink to="/signin">Login/Registro</RouterLink>
             <a
               target="_blank"
-              href="http://127.0.0.1:8000/admin/login/?next=/admin/"
+              href="https://horseti.pythonanywhere.com/admin/login/?next=/admin/"
               >Administrar</a
             >
           </li>
@@ -68,7 +71,8 @@ export default {
           <picture>
             <source
               srcset="@/assets/img/logomobile.png"
-              media="(max-width: 890px)" />
+              media="(max-width: 890px)"
+            />
             <img src="@/assets/img/IMG_20220714_153653.png" alt="" /> </picture
         ></RouterLink>
 
@@ -95,7 +99,8 @@ export default {
                 <img
                   v-if="user.foto == null"
                   src="../assets/img/semfoto.png"
-                  alt="teste" />
+                  alt="teste"
+                />
               </RouterLink>
             </li>
             <li v-else>
@@ -110,10 +115,6 @@ export default {
 </template>
 
 <style scoped>
-
-
-
-
 ul img {
   width: 2rem;
   height: 2rem;

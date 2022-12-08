@@ -11,14 +11,14 @@ export default {
     };
   },
   async created() {
-    // const user = await axios.get("http://localhost:8000/token/");
+    // const user = await axios.get("https://horseti.pythonanywhere.com/token/");
     // this.user = cachorros.data;
   },
   methods: {
     async addDog() {
       try {
         const addCachorro = await axios.post(
-          "http://localhost:8000/cachorros/",
+          "https://horseti.pythonanywhere.com/cachorros/",
           this.cachorro
         );
         this.$swal("Cachorro registrado com sucesso!"),
@@ -35,12 +35,15 @@ export default {
       formData.append("file", this.Images);
       const headers = { "Content-Type": "multipart/form-data" };
       const { data } = await axios.post(
-        "http://localhost:8000/api/media/images/",
+        "https://horseti.pythonanywhere.com/api/media/images/",
         formData,
         { headers }
       );
       this.cachorro.foto_attachment_key = data.attachment_key;
-      await axios.post("http://localhost:8000/cachorros/", this.cachorro);
+      await axios.post(
+        "https://horseti.pythonanywhere.com/cachorros/",
+        this.cachorro
+      );
       this.$swal("Cachorro registrado com sucesso!"),
         this.$router.push("/cachorrada");
     },
@@ -54,7 +57,7 @@ export default {
   //     for (let file of this.$refs.files.files) {
   //       dataForm.append(`file`, file);
   //     }
-  //     let res = await fetch(`http://localhost:8000/media/images`, {
+  //     let res = await fetch(`https://horseti.pythonanywhere.com/media/images`, {
   //       method: 'POST',
   //       body: dataForm,
   //     });
@@ -87,7 +90,8 @@ export default {
                   name="nome"
                   placeholder="nome"
                   v-model="cachorro.nome"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
@@ -99,7 +103,8 @@ export default {
                   name="descricao"
                   placeholder="desc"
                   v-model="cachorro.descricao"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
@@ -111,7 +116,8 @@ export default {
                   name="peso"
                   placeholder="peso"
                   v-model="cachorro.peso"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
@@ -123,7 +129,8 @@ export default {
                   name="altura"
                   v-model="cachorro.altura"
                   required
-                  placeholder="altura" />
+                  placeholder="altura"
+                />
               </div>
 
               <div class="input-box">
@@ -135,7 +142,8 @@ export default {
                   name="nome_responsavel"
                   placeholder="responsavel"
                   v-model="cachorro.nome_responsavel"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
@@ -145,9 +153,10 @@ export default {
                   id="tel_responsavel"
                   type="text"
                   name="tel_responsavel"
-                  placeholder="tel_responsavel"
+                  placeholder="https://wa.me/numerodoresponsavel"
                   v-model="cachorro.tel_responsavel"
-                  required />
+                  required
+                />
               </div>
             </div>
             <div class="alterar-foto">

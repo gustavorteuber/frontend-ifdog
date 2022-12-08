@@ -17,7 +17,9 @@ export default {
     },
   },
   async created() {
-    const res = await axios.get(`http://localhost:8000/cachorros/${this.id}/`);
+    const res = await axios.get(
+      `https://horseti.pythonanywhere.com/cachorros/${this.id}/`
+    );
     this.cachorro = res.data;
   },
   computed: {

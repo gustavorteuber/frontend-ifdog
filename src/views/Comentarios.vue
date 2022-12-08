@@ -39,18 +39,28 @@ export default {
       }
 
       this.comentario.autor = this.id;
-      await axios.post("http://localhost:8000/coments/", this.comentario);
+      await axios.post(
+        "https://horseti.pythonanywhere.com/coments/",
+        this.comentario
+      );
       await this.getAllComments();
     },
     async getAllComments() {
-      const comentarios = await axios.get("http://localhost:8000/coments/");
+      const comentarios = await axios.get(
+        "https://horseti.pythonanywhere.com/coments/"
+      );
       this.comentarios = comentarios.data;
-      this.comentarios.forEach(comentario => comentario.data = dayjs(comentario.data).locale(locale_pt_br).fromNow())
+      this.comentarios.forEach(
+        (comentario) =>
+          (comentario.data = dayjs(comentario.data)
+            .locale(locale_pt_br)
+            .fromNow())
+      );
     },
     // async mounted() {
     // this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
-  // 
-  // }
+    //
+    // }
   },
   async created() {
     await this.getAllComments();
@@ -60,7 +70,7 @@ export default {
   setup() {
     console.log("setup");
     onMounted(async () => {
-      const tags = await axios.get("http://localhost:8000/tags/");
+      const tags = await axios.get("https://horseti.pythonanywhere.com/tags/");
 
       let myMap = leaflet.map("map").setView([-26.394672, -48.738026], 18);
       leaflet
@@ -104,7 +114,7 @@ export default {
           <input
             @keydown.enter="addComment()"
             type="text"
-            style="padding: 4px;"
+            style="padding: 4px"
             placeholder="escreva seu comentario
               "
             v-model="comentario.texto"

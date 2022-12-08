@@ -10,7 +10,7 @@ export default {
     async register() {
       try {
         const createdUser = await axios.post(
-          "http://localhost:8000/usuarios/",
+          "https://horseti.pythonanywhere.com/usuarios/",
           this.user
         );
         this.$swal("Usuario registrado com sucesso");
@@ -45,7 +45,7 @@ export default {
 
             <div class="input-group">
               <div class="input-box">
-                <label for="firstname">Primeiro Nome</label>
+                <label for="firstname">Primeiro Nome:</label>
                 <input
                   @keydown.enter="register()"
                   id="firstname"
@@ -53,11 +53,12 @@ export default {
                   name="firstname"
                   placeholder="Digite seu primeiro nome"
                   v-model="user.first_name"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
-                <label for="lastname">Sobrenome</label>
+                <label for="lastname">Sobrenome:</label>
                 <input
                   @keydown.enter="register()"
                   id="lastname"
@@ -65,10 +66,11 @@ export default {
                   name="lastname"
                   placeholder="Digite seu sobrenome"
                   v-model="user.last_name"
-                  required />
+                  required
+                />
               </div>
               <div class="input-box">
-                <label for="email">E-mail</label>
+                <label for="email">E-mail:</label>
                 <input
                   @keydown.enter="register()"
                   id="email"
@@ -76,11 +78,12 @@ export default {
                   name="email"
                   placeholder="Digite seu e-mail"
                   v-model="user.email"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
-                <label for="number">Username</label>
+                <label for="number">Usuário:</label>
                 <input
                   @keydown.enter="register()"
                   id="number"
@@ -88,11 +91,12 @@ export default {
                   name="number"
                   v-model="user.username"
                   required
-                  placeholder="Digite seu username" />
+                  placeholder="Digite seu usuário"
+                />
               </div>
 
               <div class="input-box">
-                <label for="password">Senha</label>
+                <label for="password">Senha:</label>
                 <input
                   @keydown.enter="register()"
                   id="password"
@@ -100,11 +104,12 @@ export default {
                   name="password"
                   placeholder="Digite sua senha"
                   v-model="user.password"
-                  required />
+                  required
+                />
               </div>
 
               <div class="input-box">
-                <label for="confirmPassword">Confirme sua Senha</label>
+                <label for="confirmPassword">Confirme sua Senha:</label>
                 <input
                   @keydown.enter="register()"
                   id="confirmPassword"
@@ -112,7 +117,8 @@ export default {
                   name="confirmPassword"
                   placeholder="Digite sua senha novamente"
                   v-model="user.password_confirmation"
-                  required />
+                  required
+                />
               </div>
             </div>
 

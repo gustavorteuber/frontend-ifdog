@@ -6,7 +6,6 @@ import locale_pt_br from "dayjs/locale/pt-br";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { useAuthStore } from "@/stores/auth";
 
-
 dayjs.extend(relativeTime);
 
 export default {
@@ -21,7 +20,7 @@ export default {
   methods: {
     async removerComentario() {
       await axios.delete(
-        `http://localhost:8000/coments/${this.comentarios.id}/`
+        `https://horseti.pythonanywhere.com/coments/${this.comentarios.id}/`
       );
       this.$swal("Comentario deletado com sucesso!"),
         this.$router.push("/cachorrada");
@@ -31,7 +30,7 @@ export default {
     ...mapState(useAuthStore, ["is_superuser"]),
   },
   // created() {
-    // this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
+  // this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
   // },
 };
 </script>
@@ -52,7 +51,8 @@ export default {
           @click="
             this.id = comentarios.autor.id;
             removerComentario();
-          ">
+          "
+        >
           DELETAR
         </button>
       </div>
@@ -61,10 +61,6 @@ export default {
 </template>
 
 <style scoped>
-
-
-
-
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   background-color: #161e35;

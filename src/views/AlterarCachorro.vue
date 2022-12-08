@@ -25,9 +25,11 @@ export default {
   },
 
   async created() {
-    const res = await axios.get(`http://localhost:8000/cachorros/${this.id}/`);
+    const res = await axios.get(
+      `https://horseti.pythonanywhere.com/cachorros/${this.id}/`
+    );
     this.cachorro = res.data;
-    // const user = await axios.get("http://localhost:8000/token/");
+    // const user = await axios.get("https://horseti.pythonanywhere.com/token/");
     // this.user = cachorros.data;
   },
   methods: {
@@ -42,7 +44,10 @@ export default {
         tel_responsavel: this.cachorro.tel_responsavel,
       };
       try {
-        await axios.put(`http://localhost:8000/cachorros/${this.id}/`, info);
+        await axios.put(
+          `https://horseti.pythonanywhere.com/cachorros/${this.id}/`,
+          info
+        );
         this.$swal("Alterado com sucesso!");
         this.$router.push("/cachorrada");
       } catch {
@@ -57,7 +62,7 @@ export default {
       formData.append("file", this.Images);
       const headers = { "Content-Type": "multipart/form-data" };
       const { data } = await axios.post(
-        "http://localhost:8000/api/media/images/",
+        "https://horseti.pythonanywhere.com/api/media/images/",
         formData,
         { headers }
       );
@@ -101,7 +106,8 @@ export default {
                   type="text"
                   name="nome"
                   placeholder="nome"
-                  v-model="cachorro.nome" />
+                  v-model="cachorro.nome"
+                />
               </div>
 
               <div class="input-box">
@@ -112,7 +118,8 @@ export default {
                   type="text"
                   name="descricao"
                   placeholder="desc"
-                  v-model="cachorro.descricao" />
+                  v-model="cachorro.descricao"
+                />
               </div>
 
               <div class="input-box">
@@ -123,7 +130,8 @@ export default {
                   type="text"
                   name="peso"
                   placeholder="peso"
-                  v-model="cachorro.peso" />
+                  v-model="cachorro.peso"
+                />
               </div>
 
               <div class="input-box">
@@ -134,7 +142,8 @@ export default {
                   type="text"
                   name="altura"
                   v-model="cachorro.altura"
-                  placeholder="altura" />
+                  placeholder="altura"
+                />
               </div>
 
               <div class="input-box">
@@ -145,7 +154,8 @@ export default {
                   type="text"
                   name="nome_responsavel"
                   placeholder="responsavel"
-                  v-model="cachorro.nome_responsavel" />
+                  v-model= "cachorro.nome_responsavel"
+                />
               </div>
 
               <div class="input-box">
@@ -155,8 +165,10 @@ export default {
                   id="tel_responsavel"
                   type="text"
                   name="tel_responsavel"
-                  placeholder="tel_responsavel"
-                  v-model="cachorro.tel_responsavel" />
+                  placeholder="https://wa.me/numerodoresponsavel"
+                  v-model="cachorro.tel_responsavel"
+
+                />
               </div>
             </div>
             <div class="alterar-foto">

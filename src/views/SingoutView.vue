@@ -14,11 +14,13 @@ export default {
     };
   },
   // async created() {
-  //   // const user = await axios.get("http://localhost:8000/token/");
+  //   // const user = await axios.get("https://horseti.pythonanywhere.com/token/");
   //   // this.user = cachorros.data;
   // },
   async created() {
-    const res = await axios.get(`http://localhost:8000/usuarios/${this.id}/`);
+    const res = await axios.get(
+      `https://horseti.pythonanywhere.com/usuarios/${this.id}/`
+    );
     this.user = res.data;
     console.log(this.user);
   },
@@ -32,7 +34,10 @@ export default {
         // password: this.user.password,
       };
       try {
-        await axios.patch(`http://localhost:8000/usuarios/${this.id}/`, info);
+        await axios.patch(
+          `https://horseti.pythonanywhere.com/usuarios/${this.id}/`,
+          info
+        );
         this.$swal("por favor deslogar para salvar as informações");
       } catch {
         ("Algo deu errado, tente novamente ");
@@ -46,7 +51,7 @@ export default {
       formData.append("file", this.Images);
       const headers = { "Content-Type": "multipart/form-data" };
       const { data } = await axios.post(
-        "http://localhost:8000/api/media/images/",
+        "https://horseti.pythonanywhere.com/api/media/images/",
         formData,
         { headers }
       );
@@ -72,7 +77,8 @@ export default {
           <img
             v-if="user.foto == null"
             src="../assets/img/semfoto.png"
-            alt="teste" />
+            alt="teste"
+          />
         </div>
 
         <div class="alterar-foto">
@@ -96,7 +102,8 @@ export default {
           <input
             type="text"
             v-model="user.username"
-            @keydown.enter="editarPerfil" />
+            @keydown.enter="editarPerfil"
+          />
           <div class="btn"></div>
         </div>
         <span>Nova email:</span>
@@ -104,7 +111,8 @@ export default {
           <input
             type="text"
             v-model="user.email"
-            @keydown.enter="editarPerfil" />
+            @keydown.enter="editarPerfil"
+          />
           <div class="btn"></div>
         </div>
 

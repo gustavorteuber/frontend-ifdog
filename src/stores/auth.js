@@ -13,7 +13,7 @@ export const useAuthStore = defineStore({
   actions: {
     async login(user) {
       const { data } = await axios.post(
-        "http://localhost:8000/token/",
+        "https://horseti.pythonanywhere.com/token/",
         user
       );
       this.access = data.access;
@@ -21,7 +21,7 @@ export const useAuthStore = defineStore({
       this.id = data.id;
       this.email = data.email;
       this.first_name = data.first_name;
-      this.is_superuser = data.is_superuser
+      this.is_superuser = data.is_superuser;
     },
   },
 });

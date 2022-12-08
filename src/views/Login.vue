@@ -15,7 +15,7 @@ export default {
         await this.login(this.user);
         this.$router.push("/cachorrada");
       } catch {
-        this.$swal("Email ou senha invalidos!");
+        this.$swal("Usuário ou senha invalidos!");
       }
     },
   },
