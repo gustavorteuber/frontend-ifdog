@@ -1,7 +1,13 @@
 <script>
 import axios from "axios";
 import { mapState } from "pinia";
+import dayjs from "dayjs";
+import locale_pt_br from "dayjs/locale/pt-br";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { useAuthStore } from "@/stores/auth";
+
+dayjs.extend(relativeTime);
+
 export default {
   props: ["comentarios"],
   data() {
@@ -23,6 +29,9 @@ export default {
   computed: {
     ...mapState(useAuthStore, ["is_superuser"]),
   },
+  async mounted() {
+    this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
+  }
 };
 </script>
 
@@ -51,6 +60,10 @@ export default {
 </template>
 
 <style scoped>
+
+
+
+
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
   background-color: #161e35;

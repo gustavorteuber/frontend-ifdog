@@ -26,115 +26,24 @@ export default {
 </script>
 <template>
   <Carousel :autoplay="3000" :wrap-around="true" :itemsToShow="1">
-    <Slide v-for="slide in 5" :key="slide">
+    <Slide v-for="slide in 2" :key="slide">
       <div class="carousel__item">
-        <img src="../assets/img/CONTRASRT.png" alt="" />
+        <img src="../assets/img/def.png" alt="" />
+        <img src="../assets/img/22.png" alt="" />
       </div>
+    
     </Slide>
 
     <template #addons>
       <Navigation />
       <Pagination />
-      <div class="admin" v-if="is_superuser == true">
-        <div class="nav" v-bind="superuser">
-          <div class="img-1" v-if="is_superuser == true">
-            <div class="title-dog">
-              <h1>Imagem 1</h1>
-            </div>
 
-            <input type="file" />
-            <div class="bt-up">
-              <button>upload</button>
-            </div>
-          </div>
-        </div>
-        <div class="nav-1">
-          <div class="img-2" v-if="is_superuser == true">
-            <div class="title-dog">
-              <h1>Imagem 2</h1>
-            </div>
-            <input type="file" />
-            <div class="bt-up">
-              <button>upload</button>
-            </div>
-          </div>
-        </div>
-        <div class="nav-2">
-          <div class="img-3" v-if="is_superuser == true">
-            <div class="title-dog">
-              <h1>Imagem 3</h1>
-            </div>
-
-            <input type="file" />
-
-            <div class="bt-up">
-              <button>upload</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </template>
   </Carousel>
 </template>
 
 <style>
-.nav {
-  border-radius: 18px;
-  padding: 16px;
-  justify-content: center;
-  align-items: center;
-  height: 190px;
-  background: #161e35;
-  display: flex;
-}
 
-.nav-1 {
-  margin-left: 20px;
-  margin-right: 20px;
-  border-radius: 18px;
-  padding: 16px;
-  justify-content: center;
-  align-items: center;
-  height: 190px;
-  background: #161e35;
-  display: flex;
-}
-
-.nav-2 {
-  border-radius: 18px;
-  padding: 16px;
-  justify-content: center;
-  align-items: center;
-  height: 190px;
-  background: #161e35;
-  display: flex;
-}
-
-.admin {
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.img-1 {
-  margin-right: 10px;
-  color: #fff;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.img-2 {
-  margin-right: 10px;
-  color: #fff;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
 h1 {
   background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);
   -webkit-background-clip: text;

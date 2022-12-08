@@ -46,6 +46,10 @@ export default {
       const comentarios = await axios.get("http://localhost:8000/coments/");
       this.comentarios = comentarios.data;
     },
+    async mounted() {
+    this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
+  
+  }
   },
   async created() {
     await this.getAllComments();

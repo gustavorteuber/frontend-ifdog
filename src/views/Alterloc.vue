@@ -48,7 +48,7 @@ export default {
         <h1>Atualize a localização !</h1>
       </div>
       <div class="dogs">
-        <select v-model="tags.cachorro" name="cachorros" id="tags.id">
+        <select v-model="tags.cachorro" value="tags.id" name="cachorros" id="tags.id">
           <option value="17">Maicon</option>
           <option value="18">Formiga</option>
           <option value="19">Churras</option>
@@ -56,7 +56,7 @@ export default {
         </select>
       </div>
       <div class="blocos">
-        <select v-model="tags.local" name="blocos" id="tags.id">
+        <select v-model="tags.local" value="tags.local" name="blocos" id="tags.id">
           <option value="5">A</option>
           <option value="4">B</option>
           <option value="3">C</option>

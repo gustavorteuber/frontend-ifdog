@@ -118,7 +118,7 @@ export default {
         <div class="logout">
           <a href="/signin">
             <button>Sair</button>
-            <button @click="editarPerfil">Alterar</button>
+            <button @click="editarPerfil()">Alterar</button>
           </a>
         </div>
       </div>
