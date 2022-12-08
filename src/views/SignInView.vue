@@ -29,7 +29,7 @@
       </div>
     </main>
     <section class="images">
-      <img src="@/assets/img/undraw_good_doggy_re_eet7 (1).svg" alt="image" />
+      <img src="@/assets/img/undraw_good_doggy_re_eet7-novo.svg" alt="image" />
       <div class="circle"></div>
     </section>
   </div>
