@@ -71,7 +71,8 @@ export default {
 }
 .fuso a {
   font-size: 10pt;
-  background: -webkit-linear-gradient(45deg, #8a93e4, #00b7ff, #3071e7);
+  font-weight: 300pt;
+  background: #eef;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
