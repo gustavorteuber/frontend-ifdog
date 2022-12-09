@@ -124,10 +124,9 @@ export default {
           <div class="btn"></div>
         </div> -->
         <div class="logout">
-          <a href="/signin">
-            <button>Sair</button>
+          <RouterLink to="/signin">
+            <button>Sair</button></RouterLink>
             <button @click="editarPerfil()">Alterar</button>
-          </a>
         </div>
       </div>
     </div>
