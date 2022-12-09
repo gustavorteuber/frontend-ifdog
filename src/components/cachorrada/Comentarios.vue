@@ -29,9 +29,7 @@ export default {
   computed: {
     ...mapState(useAuthStore, ["is_superuser"]),
   },
-  // created() {
-  // this.comentarios.data = dayjs(this.comentarios.data).locale(locale_pt_br).fromNow();
-  // },
+  
 };
 </script>
 

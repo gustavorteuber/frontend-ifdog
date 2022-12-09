@@ -14,17 +14,15 @@
         </div>
 
         <div class="input-buttons">
-          <a href="/login">
-            <input type="button" value="Entrar" />
-          </a>
+          <RouterLink to="/login">
+            <input type="button" value="Entrar"/></RouterLink>
         </div>
         <div class="alternative">
           <span> ou </span>
         </div>
         <div class="input-buttons">
-          <a href="/cadastro">
-          <input type="button" value="Cadastre-se" />
-        </a>
+          <RouterLink to="/cadastro">
+            <input type="button" value="Cadastre-se"/></RouterLink>
         </div>
       </div>
     </main>

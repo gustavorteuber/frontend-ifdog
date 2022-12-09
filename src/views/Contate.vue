@@ -13,7 +13,7 @@
         </div>
         <div class="desc">
           <span> Desenvolvedor Back-end do Projeto Integrador IFDOG. </span>
-          <a href="https://github.com/gustavorteuber"
+          <a target="_blank" href="https://github.com/gustavorteuber"
             ><button>GitHub</button></a
           >
         </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="desc">
           <span> Desenvolvedor Front-end do Projeto Integrador IFDOG. </span>
-          <a href="https://github.com/vinirteuber"><button>GitHub</button></a>
+          <a target="_blank" href="https://github.com/vinirteuber"><button>GitHub</button></a>
         </div>
       </div>
          </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="desc">
           <span> Desenvolvedor Front-end do Projeto Integrador IFDOG. </span>
-          <a href="https://github.com/LocatelliBryann"
+          <a target="_blank" href="https://github.com/LocatelliBryann"
             ><button>GitHub</button></a
           >
         </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="desc">
           <span> Desenvolvedor Back-end do Projeto Integrador IFDOG. </span>
-          <a href="https://github.com/marosleo"><button>GitHub</button></a>
+          <a target="_blank" href="https://github.com/marosleo"><button>GitHub</button></a>
         </div>
       </div>
         </div>

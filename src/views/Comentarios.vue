@@ -141,7 +141,7 @@ input {
   height: 40px;
   background-color: #232733;
   margin-left: 25px;
-  width: 550px;
+  width: 380px;
 }
 
 .map {
